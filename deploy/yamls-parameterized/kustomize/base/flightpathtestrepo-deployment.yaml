@@ -1,0 +1,36 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    creationTimestamp: null
+    labels:
+        move2kube.konveyor.io/service: flightpathtestrepo
+    name: flightpathtestrepo
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            move2kube.konveyor.io/service: flightpathtestrepo
+    strategy: {}
+    template:
+        metadata:
+            creationTimestamp: null
+            labels:
+                move2kube.konveyor.io/service: flightpathtestrepo
+            name: flightpathtestrepo
+        spec:
+            containers:
+                - image: quay.io/test/flightpathtestrepo:latest
+                  imagePullPolicy: Always
+                  name: flightpathtestrepo
+                  ports:
+                    - containerPort: 8080
+                  resources: {}
+            imagePullSecrets:
+                - name: docker-credentials
+            restartPolicy: Always
+            securityContext: {}
+status: {}
+
+...
