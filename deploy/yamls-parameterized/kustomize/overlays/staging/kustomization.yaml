@@ -1,0 +1,9 @@
+patches:
+  - path: apps-v1-deployment-flightpathtestrepo.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: flightpathtestrepo
+resources:
+  - ../../base
