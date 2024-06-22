@@ -1,0 +1,5 @@
+resources:
+  - flightpathtestrepo-route.yaml
+  - flightpathtestrepo-service.yaml
+  - flightpathtestrepo-deployment.yaml
+  - flightpathtestrepo-latest-imagestream.yaml
