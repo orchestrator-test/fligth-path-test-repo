@@ -1,0 +1,25 @@
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+    creationTimestamp: null
+    labels:
+        move2kube.konveyor.io/service: flightpathtestrepo
+    name: flightpathtestrepo
+spec:
+    host: qe.lab.redhat.com
+    path: /flightpathtestrepo
+    port:
+        targetPort: port-8080
+    tls:
+        termination: passthrough
+    to:
+        kind: Service
+        name: flightpathtestrepo
+        weight: 1
+status:
+    ingress:
+        - {}
+
+...
