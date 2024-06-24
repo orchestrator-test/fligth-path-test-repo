@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flightpathtestrepo-gitops
+  namespace: orchestrator-gitops
+  labels:
+    app-type: workflow
+    app: flightpathtestrepo
+spec:
+  destination:
+    namespace: sonataflow-infra
+    server: https://kubernetes.default.svc
+  project: orchestrator-gitops
+  source:
+    path: ./kustomize/base
+    repoURL: git@github.com:orchestrator-test/fligth-path-test-repo-gitops.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
